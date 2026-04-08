@@ -36,26 +36,18 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                     transform: 'translate3d(0, 0, 0)'
                 }}>
                     <div className="flex items-center justify-between gap-2 sm:gap-4">
-                        <Link
-                            href={isPremiumMode ? '/premium' : '/'}
+                        {/* 👇 这里是修改后的电商平台超链接区域，替换了原来的Logo+网站名 */}
+                        <a
+                            href="https://www.taobao.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="flex items-center gap-2 sm:gap-3 hover:opacity-80 transition-opacity cursor-pointer min-w-0"
-                            onClick={onReset}
                             data-focusable
                         >
-                            <div className="w-8 h-8 sm:w-10 sm:h-10 relative flex items-center justify-center flex-shrink-0">
-                                <Image
-                                    src="/icon.png"
-                                    alt={siteConfig.name}
-                                    width={40}
-                                    height={40}
-                                    className="object-contain"
-                                />
-                            </div>
-                            <div className="flex flex-col min-w-0">
-                                <h1 className="text-lg sm:text-2xl font-bold text-[var(--text-color)] truncate">{siteConfig.name}</h1>
-                                <p className="text-xs text-[var(--text-color-secondary)] hidden sm:block truncate">{siteConfig.description}</p>
-                            </div>
-                        </Link>
+                            <span className="text-lg sm:text-2xl font-bold text-[var(--text-color)] truncate">
+                                淘宝商城
+                            </span>
+                        </a>
 
                         <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
                             {/* IPTV Link - only show if user has iptv_access or no auth configured */}
