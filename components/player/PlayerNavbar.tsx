@@ -37,7 +37,7 @@ export function PlayerNavbar({ isPremium }: { isPremium?: boolean }) {
                             </svg>
                         </Link>
 
-                        {/* 淘宝商城链接 */}
+                        {/* 淘宝商城链接（使用项目存在的图标） */}
                         <a
                             href="https://www.taobao.com"
                             target="_blank"
@@ -45,7 +45,7 @@ export function PlayerNavbar({ isPremium }: { isPremium?: boolean }) {
                             className="w-10 h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
                             aria-label="🔥进入私密空间"
                         >
-                            <Icons.ShoppingCart size={20} />
+                            <Icons.Gift size={20} />
                         </a>
 
                         {/* Premium 链接 */}
