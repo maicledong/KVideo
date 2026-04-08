@@ -22,7 +22,6 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
 
     const handleLogout = () => {
         clearSession();
-        // Navigate to root to clear search query params
         window.location.href = '/';
     };
 
@@ -36,7 +35,7 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                     transform: 'translate3d(0, 0, 0)'
                 }}>
                     <div className="flex items-center justify-between gap-2 sm:gap-4">
-                        {/* 👇 这里是修改后的电商平台超链接区域，替换了原来的Logo+网站名 */}
+                        {/* 左上角：淘宝链接（不变） */}
                         <a
                             href="https://www.taobao.com"
                             target="_blank"
@@ -50,7 +49,6 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                         </a>
 
                         <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-                            {/* IPTV Link - only show if user has iptv_access or no auth configured */}
                             {iptvEnabled && hasPermission('iptv_access') && (
                             <Link
                                 href="/iptv"
@@ -63,7 +61,6 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                             </Link>
                             )}
 
-                            {/* User Info */}
                             {session && (
                                 <div className="hidden sm:flex items-center gap-2">
                                     <div className="flex items-center gap-1.5 px-2.5 py-1 bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-[var(--radius-full)] text-xs">
@@ -87,15 +84,18 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                                     </button>
                                 </div>
                             )}
+
+                            {/* 右侧原GitHub图标：替换为你给的 premium 链接 */}
                             <a
-                                href="https://github.com/KuekHaoYang/KVideo"
+                                href="https://zxdai.ccwu.cc/premium"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer hidden sm:flex"
-                                aria-label="GitHub 仓库"
+                                aria-label="Premium"
                             >
                                 <Icons.Github size={20} />
                             </a>
+
                             <Link
                                 href={settingsHref}
                                 className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
