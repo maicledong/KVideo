@@ -99,7 +99,7 @@ export default function RootLayout({
           fontWeight: 500,
         }}>
           <a 
-            href="https://daotianqingzhi.com" 
+            href="https://taobao.com" 
             target="_blank" 
             style={{ color: '#42b983', textDecoration: 'none' }}
           >
