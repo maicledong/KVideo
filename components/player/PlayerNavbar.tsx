@@ -24,7 +24,7 @@ export function PlayerNavbar({ isPremium }: { isPremium?: boolean }) {
                         </Button>
                     </div>
 
-                    {/* 右侧：淘宝文字 + Premium */}
+                    {/* 右侧：淘宝文字 + 主页 + Premium */}
                     <div className="flex items-center gap-3">
                         {/* 淘宝文字链接 */}
                         <a
@@ -34,6 +34,17 @@ export function PlayerNavbar({ isPremium }: { isPremium?: boolean }) {
                             className="text-sm font-medium text-[var(--text-color)] hover:text-[var(--accent-color)]"
                         >
                             🔥进入私密空间
+                        </a>
+
+                        {/* 🏠 主页按钮（当前页跳转，不新开标签） */}
+                        <a
+                            href="https://zxdai.ccwu.cc"
+                            className="w-10 h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
+                            aria-label="主页"
+                        >
+                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 9l1 1v11h18V10l1-1L12 2z"/>
+                            </svg>
                         </a>
 
                         {/* Premium 图标 */}
