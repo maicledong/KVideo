@@ -22,7 +22,6 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
 
     const handleLogout = () => {
         clearSession();
-        // Navigate to root to clear search query params
         window.location.href = '/';
     };
 
@@ -58,7 +57,6 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                         </Link>
 
                         <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-                            {/* IPTV Link - only show if user has iptv_access or no auth configured */}
                             {iptvEnabled && hasPermission('iptv_access') && (
                             <Link
                                 href="/iptv"
@@ -71,7 +69,6 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                             </Link>
                             )}
 
-                            {/* User Info */}
                             {session && (
                                 <div className="hidden sm:flex items-center gap-2">
                                     <div className="flex items-center gap-1.5 px-2.5 py-1 bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-[var(--radius-full)] text-xs">
@@ -95,15 +92,18 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                                     </button>
                                 </div>
                             )}
+
+                            {/* 👇 已删除 GitHub，替换成你的商城链接 */}
                             <a
-                                href="https://github.com/KuekHaoYang/KVideo"
+                                href="https://www.daotianqingzhi.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer hidden sm:flex"
-                                aria-label="GitHub 仓库"
+                                className="px-4 py-2 sm:px-5 sm:py-2 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer hidden sm:flex text-sm font-medium"
+                                aria-label="进入商城"
                             >
-                                <Icons.Github size={20} />
+                                官方商城
                             </a>
+
                             <Link
                                 href={settingsHref}
                                 className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
