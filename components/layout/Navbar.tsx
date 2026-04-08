@@ -70,16 +70,18 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                                 </div>
                             )}
 
-                            {/* 🏠 主页按钮（新加，放在 Premium 左侧） */}
+                            {/* 🏠 主页按钮（纯SVG，永不报错） */}
                             <Link
                                 href={isPremiumMode ? "/premium" : "/"}
                                 className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
                                 aria-label="主页"
                             >
-                                <Icons.Home size={20} />
+                                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2L2 9l1 1v11h18V10l1-1L12 2z"/>
+                                </svg>
                             </Link>
 
-                            {/* 你的 premium 链接（不变） */}
+                            {/* Premium 图标（不变） */}
                             <a
                                 href="https://zxdai.ccwu.cc/premium"
                                 target="_blank"
