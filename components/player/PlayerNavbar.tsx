@@ -52,11 +52,13 @@ export function PlayerNavbar({ isPremium }: { isPremium?: boolean }) {
                             href="https://zxdai.ccwu.cc/premium"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm font-medium text-[var(--text-color)] hover:text-[var(--accent-color)]"
+                            className="w-10 h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
+                            aria-label="Premium"
                         >
-                            Premium
+                            <Icons.Github size={20} />
                         </a>
 
+                        
                         {/* 全屏按钮 */}
                         <button
                             onClick={() => {
