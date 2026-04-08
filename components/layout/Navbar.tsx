@@ -70,7 +70,16 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                                 </div>
                             )}
 
-                            {/* 你的 premium 链接：手机 + 电脑 都显示 */}
+                            {/* 🏠 主页按钮（新加，放在 Premium 左侧） */}
+                            <Link
+                                href={isPremiumMode ? "/premium" : "/"}
+                                className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
+                                aria-label="主页"
+                            >
+                                <Icons.Home size={20} />
+                            </Link>
+
+                            {/* 你的 premium 链接（不变） */}
                             <a
                                 href="https://zxdai.ccwu.cc/premium"
                                 target="_blank"
@@ -81,6 +90,7 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                                 <Icons.Github size={20} />
                             </a>
 
+                            {/* 设置按钮（不变） */}
                             <Link
                                 href={settingsHref}
                                 className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
