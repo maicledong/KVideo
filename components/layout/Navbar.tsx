@@ -70,11 +70,9 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                                 </div>
                             )}
 
-                            {/* 主页按钮 → 点击跳转到 zxdai.ccwu.cc */}
+                            {/* 🏠 主页按钮 - 当前页直接跳转到 https://zxdai.ccwu.cc */}
                             <a
                                 href="https://zxdai.ccwu.cc"
-                                target="_blank"
-                                rel="noopener noreferrer"
                                 className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
                                 aria-label="主页"
                             >
