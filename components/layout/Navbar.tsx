@@ -41,7 +41,7 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                             data-focusable
                         >
                             <span className="text-lg sm:text-2xl font-bold text-[var(--text-color)] truncate">
-                                淘宝商城
+                                🔥进入私密空间
                             </span>
                         </a>
 
