@@ -2,12 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 import { Icons } from '@/components/ui/Icon';
-import { siteConfig } from '@/lib/config/site-config';
 import { getSession, clearSession, type AuthSession } from '@/lib/store/auth-store';
-import { useRuntimeFeatures } from '@/components/RuntimeFeaturesProvider';
 import { LogOut } from 'lucide-react';
 
 interface NavbarProps {
@@ -18,7 +15,6 @@ interface NavbarProps {
 export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
     const settingsHref = isPremiumMode ? '/premium/settings' : '/settings';
     const [session] = useState<AuthSession | null>(() => getSession());
-    const { iptvEnabled } = useRuntimeFeatures();
 
     const handleLogout = () => {
         clearSession();
@@ -36,7 +32,7 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                 }}>
                     <div className="flex items-center justify-between gap-2 sm:gap-4">
                         
-                        {/* 左上角：淘宝链接 不变 */}
+                        {/* 左上角：淘宝链接（不变） */}
                         <a
                             href="https://www.taobao.com"
                             target="_blank"
@@ -50,18 +46,6 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                         </a>
 
                         <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-                            
-                            {/* ========== IPTV 永久显示 ========== */}
-                            <Link
-                                href="/iptv"
-                                className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
-                                aria-label="直播"
-                                title="直播"
-                                data-focusable
-                            >
-                                <Icons.TV size={16} className="sm:w-5 sm:h-5" />
-                            </Link>
-
                             {/* 用户信息 */}
                             {session && (
                                 <div className="hidden sm:flex items-center gap-2">
@@ -87,12 +71,12 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                                 </div>
                             )}
 
-                            {/* GitHub 替换为你的链接 */}
+                            {/* 你的 premium 链接：手机 + 电脑 都显示 */}
                             <a
                                 href="https://zxdai.ccwu.cc/premium"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer hidden sm:flex"
+                                className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
                                 aria-label="Premium"
                             >
                                 <Icons.Github size={20} />
