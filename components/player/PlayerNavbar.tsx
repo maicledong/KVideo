@@ -7,6 +7,9 @@ import { siteConfig } from '@/lib/config/site-config';
 export function PlayerNavbar({ isPremium }: { isPremium?: boolean }) {
     const router = useRouter();
 
+    // 👉 统一从 Cloudflare 环境变量读取主页域名
+    const HOME_URL = process.env.NEXT_PUBLIC_HOME_URL || 'https://zxdai.ccwu.cc';
+
     return (
         <nav className="sticky top-0 z-50 pt-4 pb-2 px-4" style={{ transform: 'translateZ(0)' }}>
             <div className="max-w-7xl mx-auto bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-[var(--radius-2xl)] shadow-[var(--shadow-sm)] px-4 sm:px-6 py-4">
@@ -38,7 +41,7 @@ export function PlayerNavbar({ isPremium }: { isPremium?: boolean }) {
 
                         {/* 🏠 主页按钮（当前页跳转，不新开标签） */}
                         <a
-                            href="https://zxdai.ccwu.cc"
+                            href={HOME_URL}
                             className="w-10 h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
                             aria-label="主页"
                         >
@@ -49,7 +52,7 @@ export function PlayerNavbar({ isPremium }: { isPremium?: boolean }) {
 
                         {/* Premium 图标 */}
                         <a
-                            href="https://zxdai.ccwu.cc/premium"
+                            href={`${HOME_URL}/premium`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-10 h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
