@@ -15,6 +15,9 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
     const settingsHref = isPremiumMode ? '/premium/settings' : '/settings';
     const [session] = useState<AuthSession | null>(() => getSession());
 
+    // 👉 从环境变量获取主域名（Cloudflare 可配置）
+    const HOME_URL = process.env.NEXT_PUBLIC_HOME_URL || 'https://zxdai.ccwu.cc';
+
     const handleLogout = () => {
         clearSession();
         window.location.href = '/';
@@ -70,9 +73,9 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                                 </div>
                             )}
 
-                            {/* 🏠 主页按钮 - 当前页直接跳转到 https://zxdai.ccwu.cc */}
+                            {/* 🏠 主页按钮 - 使用环境变量 */}
                             <a
-                                href="https://zxdai.ccwu.cc"
+                                href={HOME_URL}
                                 className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
                                 aria-label="主页"
                             >
@@ -81,9 +84,9 @@ export function Navbar({ onReset, isPremiumMode = false }: NavbarProps) {
                                 </svg>
                             </a>
 
-                            {/* Premium 图标（不变） */}
+                            {/* Premium 图标 - 使用环境变量 */}
                             <a
-                                href="https://zxdai.ccwu.cc/premium"
+                                href={`${HOME_URL}/premium`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
