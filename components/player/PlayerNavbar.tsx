@@ -7,15 +7,15 @@ import { siteConfig } from '@/lib/config/site-config';
 export function PlayerNavbar({ isPremium }: { isPremium?: boolean }) {
     const router = useRouter();
 
-    // 👉 统一从 Cloudflare 环境变量读取主页域名
+    // 环境变量
     const HOME_URL = process.env.NEXT_PUBLIC_HOME_URL || 'https://zxdai.ccwu.cc';
+    const PLATFORM_URL = process.env.NEXT_PUBLIC_PLATFORM_URL || 'https://www.taobao.com';
 
     return (
         <nav className="sticky top-0 z-50 pt-4 pb-2 px-4" style={{ transform: 'translateZ(0)' }}>
             <div className="max-w-7xl mx-auto bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-[var(--radius-2xl)] shadow-[var(--shadow-sm)] px-4 sm:px-6 py-4">
                 <div className="flex items-center justify-between gap-2">
                     
-                    {/* 左侧：只保留返回，删除 LOGO */}
                     <div className="flex items-center gap-2 sm:gap-4 min-w-0">
                         <Button
                             variant="secondary"
@@ -27,11 +27,10 @@ export function PlayerNavbar({ isPremium }: { isPremium?: boolean }) {
                         </Button>
                     </div>
 
-                    {/* 右侧：淘宝文字 + 主页 + Premium */}
                     <div className="flex items-center gap-3">
-                        {/* 淘宝文字链接 */}
+                        {/* 平台文字链接（变量版） */}
                         <a
-                            href="https://www.taobao.com"
+                            href={PLATFORM_URL}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-sm font-medium text-[var(--text-color)] hover:text-[var(--accent-color)]"
@@ -39,7 +38,7 @@ export function PlayerNavbar({ isPremium }: { isPremium?: boolean }) {
                             🔥进入私密空间
                         </a>
 
-                        {/* 🏠 主页按钮（当前页跳转，不新开标签） */}
+                        {/* 主页按钮 */}
                         <a
                             href={HOME_URL}
                             className="w-10 h-10 flex items-center justify-center rounded-[var(--radius-full)] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-color)] hover:bg-[color-mix(in_srgb,var(--accent-color)_10%,transparent)] transition-all duration-200 cursor-pointer"
@@ -50,7 +49,6 @@ export function PlayerNavbar({ isPremium }: { isPremium?: boolean }) {
                             </svg>
                         </a>
 
-                        {/* Premium 图标 */}
                         <a
                             href={`${HOME_URL}/premium`}
                             target="_blank"
